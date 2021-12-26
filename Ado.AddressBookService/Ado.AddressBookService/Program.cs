@@ -14,7 +14,7 @@ namespace Ado.AddressBookService
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Select a option to Execute the Program:- \n 1-Adding Contact data \n 2- Contact Deleting  \n 3-Contact Updating \n 4-View data \n 5-Exit");
+                Console.WriteLine("Select a option to Execute the Program:- \n 1-Adding Contact data \n 2- Contact Deleting  \n 3-Contact data Updating \n 4-View data \n 5-Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -47,6 +47,20 @@ namespace Ado.AddressBookService
                         break;
 
                     case 3:
+                        Console.WriteLine("Enter id of Person Whose Data you Want to Update");
+                        int Personid = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter New Name");
+                        string NewName = Console.ReadLine();
+                        bool res = addressbooksql.UpdateAddressBookDetail(Personid, NewName);
+                        if (res != null)
+                        {
+                            Console.WriteLine("Data Upadted Successfully");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Data Not updated");
+                        }
+                        break;
                         flag = false;
                         break;
                 }

@@ -73,6 +73,34 @@ namespace Ado.AddressBookService
                 throw new Exception(e.Message);
             }
         }
+        public bool UpdateAddressBookDetail(int id, string FirstName)
+        {
+            try
+            {
+                Connection();
+                SqlCommand com = new SqlCommand("UpdateAddressBook", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@id", id);
+                com.Parameters.AddWithValue("@FirstName", FirstName);
+                con.Open();
+                int i = com.ExecuteNonQuery();
+                con.Close();
+                if (i >= 1)
+                {
 
+                    return true;
+
+                }
+                else
+                {
+
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
