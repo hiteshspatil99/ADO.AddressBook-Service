@@ -45,6 +45,34 @@ namespace Ado.AddressBookService
                 throw new Exception(e.Message);
             }
         }
+        public int DeletePersonDetails(int id)
+        {
+            try
+            {
+                Connection();
+                SqlCommand com = new SqlCommand("DeleteAddressBook", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@id", id);
+                con.Open();
+                int i = com.ExecuteNonQuery();
+                con.Close();
+                if (i >= 1)
+                {
+
+                    return id;
+
+                }
+                else
+                {
+
+                    return 0;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
 
     }
 }

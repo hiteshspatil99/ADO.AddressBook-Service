@@ -37,6 +37,16 @@ namespace Ado.AddressBookService
                             Console.WriteLine("Enter Data with Respect to Coloumn");
                         break;
                     case 2:
+                        
+
+                        Console.WriteLine("Enter the id To Delete Data");
+                        int num = Convert.ToInt32(Console.ReadLine());
+                        addressbooksql.DeletePersonDetails(num);
+                        Console.WriteLine("Id Data Deleted Succesfully");
+                        break;
+                        break;
+
+                    case 3:
                         flag = false;
                         break;
                 }
