@@ -61,6 +61,12 @@ namespace Ado.AddressBookService
                             Console.WriteLine("Data Not updated");
                         }
                         break;
+
+                    case 4:
+                        addressbooksql.GetAllContact();
+                        break;
+
+                    case 5:
                         flag = false;
                         break;
                 }

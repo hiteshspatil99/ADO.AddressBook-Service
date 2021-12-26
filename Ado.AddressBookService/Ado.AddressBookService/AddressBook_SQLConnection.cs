@@ -102,5 +102,19 @@ namespace Ado.AddressBookService
                 throw new Exception(e.Message);
             }
         }
+        public DataSet GetAllContact()
+        {
+            Connection();
+            DataSet dataSet = new DataSet(); ;
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("GetAddressBookTable", con);
+            adapter.Fill(dataSet, "Address_Book");
+            foreach (DataRow dataRow in dataSet.Tables["Address_Book"].Rows)
+            {
+                Console.WriteLine("\t" + dataRow["id"] + "  " + dataRow["FirstName"] + " " + dataRow["LastName"] + " " + dataRow["Address"] + " " + dataRow["City"] + " " + dataRow["State"] + " "
+                    + dataRow["Zip"] + " " + dataRow["PhoneNo"] + " " + dataRow["Email"] + " " + dataRow["RelationType"]);
+            }
+            return dataSet;
+        }
     }
 }

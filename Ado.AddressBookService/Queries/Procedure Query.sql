@@ -72,9 +72,6 @@ Select * From Address_Book;
 
 
 Create Procedure GetAddressBookTable
-(
-@id int
-)
 as 
 begin TRY 
 select * from Address_Book
